@@ -12,6 +12,7 @@ class Node{
             next = nullptr;
         }
         Node(T v, Node<T>* p, Node<T>* n){
+            std::cout << "Node::Constructor()\n";
             value = v;
             prev = p;
             next = n;
@@ -63,6 +64,7 @@ class DList{
         }
 
         Node<T>* Last(){
+            std::cout << "DList::Last()\n";
             Node<T>* temp = first;
             while(temp->getNext())
                 temp = temp->getNext();
@@ -70,16 +72,20 @@ class DList{
         }
 
         void Add(T v){
+            std::cout << "DList::Add()\n";
             Node<T>* n;
             if(length != 0){
-                Last()->setNext(n);
+                std::cout << "DList::Add()::Not First\n";
                 n = new Node<T>(v, Last(), nullptr);
+                Last()->setNext(n);
             }
             else{
+                std::cout <<"DList::Add()::First\n";
                 n = new Node<T>(v, nullptr, nullptr);
                 first = n;
             }
             length++;
+            std::cout << "DList::Add()::end\n";
         }
 
         bool Delete(int pos){

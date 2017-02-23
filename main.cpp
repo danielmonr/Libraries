@@ -25,6 +25,8 @@ int main(int argc, char* argv[]){
 
     DList<int>* lista = new DList<int>();
     lista->Add(1);
+    lista->Add(3);
+    //lista->Add(2);
 
     delete lista;
     return 1;
