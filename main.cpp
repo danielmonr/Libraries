@@ -21,12 +21,31 @@
 #include <iostream>
 #include "doubleList.h"
 
+void TestPrint(DList<int>* lista){
+    std::cout<< "Res::lista={";
+    int i = 0;
+    for (i; i < lista->Length(); ++i){
+        std::cout<<"{" << i <<"," << lista->At(i)->getValue()<<"};";
+    }
+    std::cout<<"}\n";
+}
+
 int main(int argc, char* argv[]){
 
     DList<int>* lista = new DList<int>();
     lista->Add(1);
     lista->Add(3);
-    //lista->Add(2);
+    lista->Add(2);
+
+    TestPrint(lista);
+
+    int pos = lista->Search(3);
+    std::cout << "Res::pos=" << pos << std::endl;
+
+    bool del = lista->Delete(pos);
+    std::cout << "Res::del=" << del << std::endl;
+
+    TestPrint(lista);
 
     delete lista;
     return 1;
