@@ -39,11 +39,15 @@ int main(int argc, char* argv[]){
 
     TestPrint(lista);
 
-    int pos = lista->Search(3);
+    int pos = lista->Search(1);
     std::cout << "Res::pos=" << pos << std::endl;
 
     bool del = lista->Delete(pos);
     std::cout << "Res::del=" << del << std::endl;
+
+    TestPrint(lista);
+
+    lista->Add(5);
 
     TestPrint(lista);
 
